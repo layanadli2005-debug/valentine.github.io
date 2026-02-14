@@ -6,14 +6,13 @@
     <title>Be My Valentine</title>
     <link rel="stylesheet" href="css/valentine.css" />
   </head>
-  <body>
-    <div id="valentineQuestion"><b>Will you be my valentine habibi Karam ?</b></div>
+<body style="background-color: #ffe6e6;">    <div id="valentineQuestion"><b>Will you be my valentine habibi Karam ?</b></div>
     <button class="answerButton" onclick="location.href='thankyou.html'">
       Yes
     </button>
     <button class="answerButton" id="noButton">I no no wanna o(╥﹏╥)o</button>
     <br />
-    <img src="https://i.pinimg.com/736x/8f/b4/94/8fb494ff6768e6a83e63edb5bb25a7e5.jpg" alt="cat asking question" class="responsive" />
+    <img src="https://i.pinimg.com/originals/2d/41/38/2d4138c7c24d21b9d17f66a54ee7ea03.gif" />
 
     <script>
      const noButton = document.getElementById("noButton");
@@ -28,6 +27,27 @@
           noButton.style.left = `${x}px`;
           noButton.style.top = `${y}px`;
       }); 
+      // --- كود القلوب المتساقطة ---
+    setInterval(function() {
+        const heart = document.createElement("div");
+        heart.innerHTML = "🩷"; // تقدري تغيري القلب لأي ايموجي تاني
+        heart.style.position = "fixed";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = "-50px";
+        heart.style.fontSize = Math.random() * 20 + 20 + "px";
+        heart.style.zIndex = "-1"; // عشان القلوب تكون ورا الكلام والصور
+        document.body.appendChild(heart);
+
+        // حركة النزول
+        let duration = Math.random() * 3000 + 2000;
+        heart.animate([
+            { transform: 'translateY(0)', opacity: 1 },
+            { transform: 'translateY(100vh)', opacity: 0 }
+        ], {
+            duration: duration,
+            easing: 'linear'
+        }).onfinish = () => heart.remove();
+    }, 300); // سرعة نزول القلوب (كل ما قل الرقم زادت القلوب)
     </script>
   </body>
 </html>
